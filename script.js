@@ -8,36 +8,63 @@ var secondsDisplay = document.querySelector("#seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
 var restMinutesInput = document.querySelector("#rest-minutes");
 
+let timeIdentifer;
+
+
 let zero = 0
 let zeros = 00
 
+let totalSeconds = workMinutesInput.value.trim() * 60
+
+let minutesLeft = workMinutesInput.value.trim();
+let secondsLeft = 59
+
+function renderTime(){
+  minutesDisplay.textContent = workMinutesInput.value
+  secondsDisplay.textContent = secondsLeft
+}
 
 function startTimer() {
-  let totalSeconds = workMinutesInput.value.trim() * 60
+renderTime()
 
-  let minutesLeft = workMinutesInput.value.trim()
-  let secondsLeft = 59;
 
-  let timeIdentifier = setInterval(function () {
+
+
+  timeIdentifer = setInterval(() => {
+
     totalSeconds--
     secondsLeft--
     secondsDisplay.textContent = secondsLeft
-    minutesDisplay.textContent = minutesLeft
+    minutesDisplay.textContent = workMinutesInput.value
     console.log(totalSeconds)
+
     if (totalSeconds % 60 === 0) {
-      minutesLeft--
+      workMinutesInput.value--
     }
     if (secondsLeft === 0) {
       secondsLeft = 59
     } else if (totalSeconds === 0) {
       secondsDisplay.textContent = zeros
       minutesDisplay.textContent = zero
-      clearInterval(timeIdentifier)
+      clearInterval(timeIdentifer)
     }
 
   }, 1000)
+
 }
 
+function pauseTimer() {
+  clearInterval(timeIdentifer)
 
+}
 
+function stopTimer() {
+  clearInterval(timeIdentifer)
+  minutesDisplay.textContent = "00"
+  secondsDisplay.textContent = "00"
+}
 playButton.addEventListener("click", startTimer);
+
+stopButton.addEventListener("click", stopTimer)
+
+pauseButton.addEventListener("click", pauseTimer);

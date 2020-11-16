@@ -35,7 +35,7 @@ function startTimer() {
       clearInterval(timeIdentifier)
     }
 
-  }, 150)
+  }, 1000)
 }
 
 

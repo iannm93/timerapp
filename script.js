@@ -11,10 +11,8 @@ var restMinutesInput = document.querySelector("#rest-minutes");
 let timeIdentifer;
 
 
-let zero = 0
-let zeros = 00
 
-let totalSeconds = workMinutesInput.value.trim() * 60
+
 
 let minutesLeft = workMinutesInput.value.trim();
 let secondsLeft = 59
@@ -25,6 +23,8 @@ function renderTime(){
 }
 
 function startTimer() {
+  let totalSeconds = workMinutesInput.value.trim() * 60
+  console.log(totalSeconds)
 renderTime()
 
 
@@ -44,8 +44,8 @@ renderTime()
     if (secondsLeft === 0) {
       secondsLeft = 59
     } else if (totalSeconds === 0) {
-      secondsDisplay.textContent = zeros
-      minutesDisplay.textContent = zero
+      secondsDisplay.textContent = "00"
+      minutesDisplay.textContent = "0"
       clearInterval(timeIdentifer)
     }
 

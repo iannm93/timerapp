@@ -74,6 +74,10 @@ label {
   border-radius: 50%;
 }
 
+#break{
+  background-color: black;
+}
+
 input:checked + .slider {
   background-color: skyblue;
 }

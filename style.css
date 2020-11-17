@@ -6,7 +6,7 @@
 
 body {
   font-size: 14px;
-  background-color: #fdfdfd;
+  background-color:black;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -85,7 +85,9 @@ input:focus + .slider {
 input:checked + .slider:before {
   transform: translateX(13px);
 }
-
+#work-minutes{
+  background-color: black;
+}
 .container {
   padding: 20px;
   max-width: 400px;
@@ -111,7 +113,7 @@ input:checked + .slider:before {
   left: 5px;
   height: 290px;
   width: 290px;
-  background-color: #fdfdfd;
+  background-color:black;
   border-radius: 50%;
 }
 

@@ -49,7 +49,7 @@ renderTime()
       clearInterval(timeIdentifer)
     }
 
-  }, 1000)
+  }, 150)
 
 }
 
@@ -60,7 +60,7 @@ function pauseTimer() {
 
 function stopTimer() {
   clearInterval(timeIdentifer)
-  minutesDisplay.textContent = "00"
+  minutesDisplay.textContent = "0"
   secondsDisplay.textContent = "00"
 }
 playButton.addEventListener("click", startTimer);

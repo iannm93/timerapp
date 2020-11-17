@@ -1,16 +1,16 @@
-var statusSpan = document.querySelector("#status");
-var statusToggle = document.querySelector("#status-toggle");
-var playButton = document.querySelector("#play");
-var pauseButton = document.querySelector("#pause");
-var stopButton = document.querySelector("#stop");
-var minutesDisplay = document.querySelector("#minutes");
-var secondsDisplay = document.querySelector("#seconds");
-var workMinutesInput = document.querySelector("#work-minutes");
-var restMinutesInput = document.querySelector("#rest-minutes");
-
+let statusSpan = document.querySelector("#status");
+let statusToggle = document.querySelector("#status-toggle");
+let playButton = document.querySelector("#play");
+let pauseButton = document.querySelector("#pause");
+let stopButton = document.querySelector("#stop");
+let minutesDisplay = document.querySelector("#minutes");
+let secondsDisplay = document.querySelector("#seconds");
+let workMinutesInput = document.querySelector("#work-minutes");
+let breakInput = document.querySelector("#break");
+console.log(breakInput)
 let timeIdentifer;
 
-
+let timeUntilBreak = 0
 
 
 
@@ -26,19 +26,26 @@ function renderTime(){
 function startTimer() {
   let totalSeconds = workMinutesInput.value.trim() * 60
   console.log(totalSeconds)
-renderTime()
+renderTime();
+console.log(breakInput.value)
 
+console.log(workMinutesInput.value)
 
 
 
   timeIdentifer = setInterval(() => {
 
+    timeUntilBreak ++
     totalSeconds--
     secondsLeft--
     secondsDisplay.textContent = secondsLeft
     minutesDisplay.textContent = workMinutesInput.value
     console.log(totalSeconds)
-
+    
+    if(timeUntilBreak === breakInput.value*60 ){
+      alert("time for a break")
+      clearInterval(timeIdentifer)
+    }
     if (totalSeconds % 60 === 0) {
       workMinutesInput.value--
     }

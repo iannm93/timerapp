@@ -10,14 +10,11 @@ let breakInput = document.querySelector("#break");
 let timeIdentifer;
 
 let timeUntilBreak = 0
-
-
-
-
-let minutesLeft = workMinutesInput.value.trim();
 let secondsLeft = 59
 
-function renderTime(){
+let minutesLeft = workMinutesInput.value.trim();
+
+function renderTime() {
   minutesDisplay.textContent = workMinutesInput.value
   secondsDisplay.textContent = secondsLeft
 }
@@ -25,23 +22,21 @@ function renderTime(){
 function startTimer() {
   let totalSeconds = workMinutesInput.value.trim() * 60
   console.log(totalSeconds)
-renderTime();
-console.log(breakInput.value)
+  renderTime();
 
-console.log(workMinutesInput.value)
-
-
+  console.log(breakInput.value)
+  console.log(workMinutesInput.value)
 
   timeIdentifer = setInterval(() => {
 
-    timeUntilBreak ++
+    timeUntilBreak++
     totalSeconds--
     secondsLeft--
     secondsDisplay.textContent = secondsLeft
     minutesDisplay.textContent = workMinutesInput.value
     console.log(totalSeconds)
-    
-    if(timeUntilBreak === breakInput.value*60 ){
+
+    if (timeUntilBreak === breakInput.value * 60) {
       alert("time for a break")
       clearInterval(timeIdentifer)
     }
@@ -70,8 +65,7 @@ function stopTimer() {
   minutesDisplay.textContent = "0"
   secondsDisplay.textContent = "00"
 }
+
 playButton.addEventListener("click", startTimer);
-
 stopButton.addEventListener("click", stopTimer)
-
 pauseButton.addEventListener("click", pauseTimer);

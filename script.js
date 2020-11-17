@@ -7,7 +7,6 @@ let minutesDisplay = document.querySelector("#minutes");
 let secondsDisplay = document.querySelector("#seconds");
 let workMinutesInput = document.querySelector("#work-minutes");
 let breakInput = document.querySelector("#break");
-console.log(breakInput)
 let timeIdentifer;
 
 let timeUntilBreak = 0

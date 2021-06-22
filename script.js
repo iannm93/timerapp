@@ -12,6 +12,8 @@ let timeIdentifer;
 let timeUntilBreak = 0
 let secondsLeft = 59
 
+
+
 let minutesLeft = workMinutesInput.value.trim();
 
 function renderTime() {
@@ -51,7 +53,7 @@ function startTimer() {
       clearInterval(timeIdentifer)
     }
 
-  }, 150)
+  }, 1000)
 
 }
 
@@ -69,3 +71,5 @@ function stopTimer() {
 playButton.addEventListener("click", startTimer);
 stopButton.addEventListener("click", stopTimer)
 pauseButton.addEventListener("click", pauseTimer);
+
+
